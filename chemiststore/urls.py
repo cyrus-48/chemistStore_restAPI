@@ -35,5 +35,5 @@ router.register("chemistbank",views.ChemistBankViewSet, basename= "chemistbank")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/',include(router.urls))
+    path('api/',include(router.urls)) 
 ]
