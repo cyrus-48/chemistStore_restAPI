@@ -128,6 +128,8 @@ class CustomerViewSet(viewsets.ViewSet):
         except:
             dict_response = {"error": True, "message": "Error during updating Customer  data "}
             return Response(dict_response)
+
+
 class ChemistBankViewSet(viewsets.ViewSet):
 
     def list(self, request):
@@ -155,7 +157,7 @@ class ChemistBankViewSet(viewsets.ViewSet):
 
     def update(self, request, pk=None):
         try:
-            queryset =  ChemistBank.objects.all()
+            queryset = ChemistBank.objects.all()
             chemist = get_object_or_404(queryset, pk=pk)
             serializer = ChemistBankSerializer(data=request.data, context={"request": request})
             serializer.is_valid()
@@ -165,8 +167,6 @@ class ChemistBankViewSet(viewsets.ViewSet):
         except:
             dict_response = {"error": True, "message": "Error during updating chemist bank data "}
             return Response(dict_response)
-
-
 
 
 class BillViewSet(viewsets.ViewSet):
@@ -245,6 +245,8 @@ class StaffViewSet(viewsets.ViewSet):
         except:
             dict_response = {"error": True, "message": "Error during updating Medicine  data "}
             return Response(dict_response)
+
+
 class MedicalDetailsViewSet(viewsets.ViewSet):
 
     def list(self, request):
@@ -260,7 +262,7 @@ class MedicalDetailsViewSet(viewsets.ViewSet):
     # method for updating
     def create(self, request):
         try:
-            serializer =  MedicalDetailsSerializer(data=request.data, context={"request": request})
+            serializer = MedicalDetailsSerializer(data=request.data, context={"request": request})
             serializer.is_valid(raise_exception=True)
             serializer.save()
             dict_response = {"error": False, "message": "data saved successfully"}
@@ -274,7 +276,7 @@ class MedicalDetailsViewSet(viewsets.ViewSet):
         try:
             queryset = MedicalDetails.objects.all()
             chemist = get_object_or_404(queryset, pk=pk)
-            serializer =MedicalDetailsSerializer(data=request.data, context={"request": request})
+            serializer = MedicalDetailsSerializer(data=request.data, context={"request": request})
             serializer.is_valid()
             serializer.save()
             dict_response = {"error": False, "message": "Medicine data update successfully"}
@@ -283,6 +285,8 @@ class MedicalDetailsViewSet(viewsets.ViewSet):
             dict_response = {"error": True, "message": "Error during updating Medicine  data "}
             return Response(dict_response)
         # viewset for the customer request serializer
+
+
 class CustomerRequestViewSet(viewsets.ViewSet):
 
     def list(self, request):
@@ -312,7 +316,7 @@ class CustomerRequestViewSet(viewsets.ViewSet):
         try:
             queryset = CustomerRequest.objects.all()
             chemist = get_object_or_404(queryset, pk=pk)
-            serializer =CustomerRequestSerializer(data=request.data, context={"request": request})
+            serializer = CustomerRequestSerializer(data=request.data, context={"request": request})
             serializer.is_valid()
             serializer.save()
             dict_response = {"error": False, "message": "Customer request updated  successfully"}
@@ -320,6 +324,7 @@ class CustomerRequestViewSet(viewsets.ViewSet):
         except:
             dict_response = {"error": True, "message": "Error during updating customer requests  data "}
             return Response(dict_response)
+
 
 class ChemistAccountViewSet(viewsets.ViewSet):
 
@@ -350,7 +355,7 @@ class ChemistAccountViewSet(viewsets.ViewSet):
         try:
             queryset = ChemistAccount.objects.all()
             chemist = get_object_or_404(queryset, pk=pk)
-            serializer =ChemistAccountSerializer(data=request.data, context={"request": request})
+            serializer = ChemistAccountSerializer(data=request.data, context={"request": request})
             serializer.is_valid()
             serializer.save()
             dict_response = {"error": False, "message": "chemist account  data updated successfully"}
@@ -358,6 +363,7 @@ class ChemistAccountViewSet(viewsets.ViewSet):
         except:
             dict_response = {"error": True, "message": "Error during updating chemist account  data "}
             return Response(dict_response)
+
 
 class StaffBankViewSet(viewsets.ViewSet):
 
@@ -388,7 +394,7 @@ class StaffBankViewSet(viewsets.ViewSet):
         try:
             queryset = StaffBank.objects.all()
             bank = get_object_or_404(queryset, pk=pk)
-            serializer =StaffBankSerializer(data=request.data, context={"request": request})
+            serializer = StaffBankSerializer(data=request.data, context={"request": request})
             serializer.is_valid()
             serializer.save()
             dict_response = {"error": False, "message": "Staff bank data update successfully"}
@@ -396,6 +402,8 @@ class StaffBankViewSet(viewsets.ViewSet):
         except:
             dict_response = {"error": True, "message": "Error during updating staff bank  data "}
             return Response(dict_response)
+
+
 class StaffSalaryViewSet(viewsets.ViewSet):
 
     def list(self, request):
@@ -433,6 +441,8 @@ class StaffSalaryViewSet(viewsets.ViewSet):
         except:
             dict_response = {"error": True, "message": "Error during updating staff salary  data "}
             return Response(dict_response)
+
+
 class BillDetailsViewSet(viewsets.ViewSet):
 
     def list(self, request):
@@ -462,7 +472,7 @@ class BillDetailsViewSet(viewsets.ViewSet):
         try:
             queryset = BillDetails.objects.all()
             bill = get_object_or_404(queryset, pk=pk)
-            serializer =BillDetailsSerializer(data=request.data, context={"request": request})
+            serializer = BillDetailsSerializer(data=request.data, context={"request": request})
             serializer.is_valid()
             serializer.save()
             dict_response = {"error": False, "message": "Bill Details data update successfully"}
@@ -470,13 +480,6 @@ class BillDetailsViewSet(viewsets.ViewSet):
         except:
             dict_response = {"error": True, "message": "Error during updating Bill details  data "}
             return Response(dict_response)
-
-
-
-
-
-
-
 
 
 chemist_list = ChemistViewSet.as_view({"get": "list"})
