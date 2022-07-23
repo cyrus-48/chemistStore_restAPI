@@ -2,4 +2,4 @@
  release: python manage.py migrate --no-input
 
 
- web: gunicorn chemistStore.wsgi --log-file -
+ web: gunicorn chemiststore.wsgi.application --log-file -
