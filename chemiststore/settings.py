@@ -123,4 +123,3 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 django_heroku.settings(locals())
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-DJANGO_SETTINGS_MODULE=config.settings.production
